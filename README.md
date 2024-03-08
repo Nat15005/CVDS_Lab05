@@ -82,12 +82,120 @@ Como parte del laboratorio en casa has los dos request anteriores pero ahora usa
 - Una vez adentro en Telnet, escribimos:
 
   GET /es/ HTTP/1.1
+  
   Host: www.escuelaing.edu.co
 
-  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/2fed87c0-bef1-40db-9ddf-949717413744)
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/08d21f9c-de36-4e6c-9da6-dcc54bd979b4)
 
-  
+-  ¿Qué significa la respuesta 301 cuándo usas telnet en el puerto 80?.
 
+    telnet soporta HTTP y no HTTPS, si se intenta enviar texto plano al 443 cierra la conexión, y si se usa el puerto 80, redirecciona al recurso HTTPs(sale un mensaje de tipo 30x que significa redirección, como se puede ver en la captura)
   
+    El código de estado HTTP 301 significa "Movido permanentemente". Cuando se realiza una solicitud HTTP a un servidor web y se recibe una respuesta con el código de estado 301, indica que el recurso      solicitado ha sido movido permanentemente a una nueva ubicación. La nueva ubicación se especifica en el encabezado Location de la respuesta.
+
+
+  Como telnet no soporta HTTPS(no soporta la de la página de la escuela, ni la de dummyjson), haremos la prueba con example.com
+
+- Escribimos la siguiente línea:
+  
+  telnet example.com 80
+
+- Una vez adentro en Telnet, escribimos:
+
+  GET / HTTP/1.1
+  
+  Host: example.com
+
+- De esta forma, obtenemos el recurso:
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/3246c6f3-61d8-4d64-ae0a-51fa3b6a7453)
+
+## PARTE II. - CLIENT SIDE RENDERING CON REACT
+
+Para iniciar verifica que tengas alguna de estas herramientas:
+- NPM o YARN
+Verificando en terminal sería $ npm --version
+
+![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/d3458706-0d02-48b4-8d66-0653cb6c0eeb)
+
+La siguiente misión es ejecutar una aplicación react localmente:
+
+- Abre la aplicación https://codesandbox.io/s/react-js-simple-calculator-pefmr, loguéate con GitHub y juega cambiando los parámetros como colores y duplicando las líneas del archivo App.js con tags como <ResultComponent ...> en la función render.
+
+  - Cambiando colores:
+    ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/45e2187a-920e-4b64-b3d0-db359d0f17db)
+
+  - Duplicando las líneas del archivo App.js
+
+    ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/c14b9609-5a38-4051-a86e-35c1eddb7ed6)
+
+
+- ¿Qué hace cada uno de los archivos en la aplicación?
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/b43d4ba3-94cd-4c47-906d-572d32f429e4)
+
+  - package.json: Este archivo define las dependencias del proyecto, incluyendo las versiones de React y React-DOM utilizadas, así como los scripts para iniciar el servidor de desarrollo, construir el proyecto y ejecutar pruebas.
+
+  -  public/index.html: Este archivo HTML es la plantilla base de la aplicación React. Contiene un div con el ID "root" donde se renderiza la aplicación React.
+  
+  - src/App.js: Este archivo contiene el componente principal de la aplicación (App). Define la lógica para la calculadora, incluyendo cómo se manejan los clics en los botones, cómo se realizan los cálculos, cómo se muestra el resultado y cómo se actualiza el estado de la aplicación.
+  
+  - src/components/KeyPadComponent.js: Este archivo contiene el componente KeyPadComponent, que define los botones de la calculadora. Cada botón tiene un evento onClick que llama a la función onClick definida en el componente principal (App) cuando se hace clic en él.
+  
+  - src/components/ResultComponent.js: Este archivo contiene el componente ResultComponent, que muestra el resultado de los cálculos realizados en la calculadora.
+  
+  - src/index.js: Este archivo es el punto de entrada de la aplicación React. Aquí se importa el componente App y se renderiza en el elemento con el ID "root" del archivo HTML principal.
+  
+  - src/styles.css: Este archivo contiene estilos CSS para la aplicación, incluyendo el diseño de la calculadora, los estilos de los botones y el resultado.
+
+- Después de haber visto los cambios, vuelve a abrir la URL original https://codesandbox.io/s/react-js-simple-calculator-pefmr y sigue los siguientes pasos:
+
+1. Descargar código en un Zip
+2. Descomprimir el Zip en la carpeta de proyectos de software, (en ciertos PC solo funciona 7-Zip)
+3. Abrir una terminal de Git Bash en la carpeta descomprimida
+4. Instalar las dependencias con npm install
+
+    ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/9924430c-0c0f-4ab4-af58-0462c5f1eb1c)
+
+    ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/b2eaabbc-7f20-468f-88ba-2ae97f4e0289)
+
+
+5. Iniciar la aplicación con npm start, en algunos computadores con versiones antiguas de nodejs hay que agregar NODE_OPTIONS=--openssl-legacy-provider npm run start
+
+   Utilzamos 'NODE_OPTIONS=--openssl-legacy-provider npm run start' ya que no funciona solo con npm start
+
+    ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/541d178c-a72b-4c79-b02c-088688bdb058)
+
+7. Si te sale el Firewall dale click en cancelar
+8. Abrir la ruta http://localhost:3000/ en un navegador web como Firefox o Google Chrome
+
+   ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/537164b4-3aee-4864-a938-6798978ef9e6)
+
+- Ahora, has el request GET http://localhost:3000/ usando Postman, y revisa si el body de la respuesta es igual a alguno de los archivos del proyecto. 
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/f2cc6c13-cbbf-4a99-bcbd-1c5625d7b70f)
+
+  Efectivamente, el body es igual al archivo index.html del proyeto
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/8e0a63b1-d903-4788-8584-b5d071d7121a)
+
+- Significa eso que es un recurso web dinámico o estático?
+
+  Se encontró que el cuerpo de la respuesta es idéntico al contenido del archivo HTML, esto sugiere que el recurso es estático. Un recurso web estático es aquel cuyo contenido no cambia dinámicamente   en función de la solicitud del cliente o de factores internos del servidor. En otras palabras, el servidor está enviando un archivo estático tal como está almacenado en el sistema de archivos del servidor, sin procesamiento adicional.
+
+## PARTE III. - HACIENDO UNA APLICACIÓN WEB DINÁMICA USANDO EL PATRÓN MVC
+
+En este ejercicio, va a implementar una aplicación Web muy básica, haciendo uso de spring MVC.
+
+Para esto usaremos la documentación oficial de Spring con que que aprenderemos las funciones básicas de este framework https://spring.io/guides/gs/serving-web-content/
+
+Después de terminar el aprendizaje analice:
+
+- ¿Por qué MVC obtiene ese nombre? (puede apoyarse de https://www.javatpoint.com/spring-mvc-tutorial)
+- ¿Cuáles son las ventajas de usar MVC?
+- ¿Qué diferencia tiene la estructura de directorios de este proyecto comparado con las de proyectos pasados (con solo maven y java EE)?
+- ¿Qué anotaciones usaste y cuál es la diferencia entre ellas?
+- Ahora, haz el request GET http://localhost:8080/greeting usando Postman, y revisa si el body de la respuesta es igual a alguno de los archivos del proyecto. Significa eso que es un recurso web dinámico o estático?
+
 
 
