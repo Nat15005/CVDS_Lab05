@@ -75,6 +75,19 @@ Como parte del laboratorio en casa has los dos request anteriores pero ahora usa
   
   ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/c26ecc99-65f6-4b63-80b7-42c1bac29d44)
 
+- Escribimos la siguiente línea:
 
+  telnet www.escuelaing.edu.co 80
+
+- Una vez adentro en Telnet, escribimos:
+
+  GET /es/ HTTP/1.1
+  Host: www.escuelaing.edu.co
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/2fed87c0-bef1-40db-9ddf-949717413744)
+
+  
+
+  
 
 
