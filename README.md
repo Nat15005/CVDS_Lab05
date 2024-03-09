@@ -1,5 +1,10 @@
 # LABORATORIO 5 - SPRING MVC INTRODUCTION
 
+### Integrantes:
+  Laura Natalia Rojas Robayo
+  
+  Cristian Javier Alvarez
+
 ### INTRODUCCIÓN A PROYECTOS WEB
 
 ## PARTE I. - JUGANDO A SER UN CLIENTE HTTP
@@ -337,7 +342,64 @@ Luego de terminada esta parte responda:
   En el contexto de una aplicación web utilizando la arquitectura MVC (Modelo-Vista-Controlador), Bootstrap CSS se utilizaría en la capa de vista para diseñar y estilizar las páginas HTML que se muestran al usuario. Esto implica utilizar las clases y componentes proporcionados por Bootstrap CSS para crear una interfaz de usuario atractiva y fácil de usar.
 
   
+## PARTE V. - APLICACIÓN MVC JUEGO
 
+¡Llego la hora del reto! Teniendo las bases del uso del framework, cree una nueva ruta, por ejemplo /guess, y agrege formulario básico con un campo llamado "número" (guía de como crear formularios HTML https://www.w3schools.com/html/)
+
+- Creamos un nuevo controlador 'GuessController'
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/efb50d30-a633-413e-a959-ae67add2ef2c)
+
+- Añadimos un 'guess.html' en el directorio src/main/resources/templates
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/51635fe7-5fde-43ed-8258-12a74c9c195b)
+
+- Lo probamos:
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/ee3f8bd8-8fee-49eb-87c8-e2954c087b97)
+
+
+Y vamos a implementar la lógica de nuestro juego:
+
+1. Se trata de un juego en línea para adivinar un número, en el que el ganador, si acierta en la primera oportunidad, recibe $100.000. Luego, por cada intento fallido, el premio se reduce en $10.000, como en los juegos de apuesta, es natural qué quede en saldos negativos.
+2. El número a adivinar debe ser generado en cada intento y comparado con el número qué el usuario está insertando, es un número de 1 a 10.
+3. Debe existir un botón de reset, qué permita al jugador iniciar de nuevo.
+4. La capa de controlador debe procer el número del usuario mediante método POST.
+
+- Modificamos el controlador GuessController para manejar el envío del número del usuario mediante un método POST.
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/456cb0da-533b-4255-b2f7-e7b751e715bc)
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/3fbeed77-29e9-4e16-9a9e-b4e2de5e3ea2)
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/11ea985e-a34f-4110-a0bf-1b78fc6ccaea)
+
+- Modificamos la vista 'guess.html' para mostrar el formulario y el mensaje de resultado.
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/ff700c86-ecca-467c-ad7a-799c25d1034d)
+
+- Probamos:
+  
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/d0882b82-c9c0-4bef-8f11-aa0e120d02e4)
+
+  - Después de fallar en 3 intentos
+
+    ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/47d2b235-82e4-469d-8c0d-2878b948ff15)
+
+  - Después de ganar al 7° intento
+
+    ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/2580c5bb-4007-437c-9bc6-3e339531edf4)
+
+
+Analice las siguientes situaciones:
+
+- ¿Qué pasa si abro el sitio de juegos en dos navegadores difententes?
+
+  Debido a que no se han gestionado sesiones, ambos navegadores compartirán la misma información del juego. Esto se debe a que no se mantiene un estado independiente para cada sesión, lo que resulta en que cualquier acción realizada en un navegador afecte al estado del juego en el otro navegador.
+
+- Si quisiera qué a cada jugador le aparecieran independientemente sus respectivos saldos. ¿Qué habría que hacer?
+
+  Si se desea que cada jugador tenga su propio saldo independiente, se requeriría implementar un sistema de gestión de sesiones. Esto implicaría asignar una sesión única a cada jugador cuando ingresan al sitio y luego mantener la información específica de cada jugador asociada con su sesión. De esta manera, cada jugador tendría su propio saldo, sin importar cuántas personas estén jugando simultáneamente en el sitio.
 
 
 
