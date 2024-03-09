@@ -296,6 +296,45 @@ Después de terminar el aprendizaje analice:
 
   El body de la respuesta no es igual a ninguno de los archivos del proyecto. Esto significa que es dinámico.
 
+## PARTE IV. - APLICACIÓN MVC PARA CONSUMO DE SERVICIO RESTful
+
+Usando la arquitectura MVC del punto anterior (el proyecto anterior), realice una aplicación simple qué permita navegar gráficamente sobre esta API https://jsonplaceholder.typicode.com/todos/1, puede guiarse de tutoriales como https://medium.com/@nutanbhogendrasharma/consume-rest-api-in-spring-boot-web-application-354c404850f0
+
+- Creamos el proyecto con spring initializr
+  ![Imagen de WhatsApp 2024-03-08 a las 20 46 31_8df5373a](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/29e3b2dd-8134-4060-ae43-63f325ded473)
+
+- Ahora creamos una clase 'Todo.java' que represente la estructura de los datos devueltos por la API.
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/931390f0-ddf3-496b-a2f7-51c9a9c4eb9a)
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/717cafb0-d260-4c87-8aa5-80acb0712a4c)
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/3cdf72cc-e1f0-4378-976b-504b7bfcf6bb)
+
+- Creamos un controlador para manejar las solicitudes de la aplicación 'TodoController' y la anotamos con @Controller
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/1c81a487-2ac6-4f2b-bfa8-921d7876a326)
+
+- Creamos la vista para mostrar los datos, añadimos el archivo HTML 'todo.html' en el directorio 'src/main/resources/templates' para mostrar los detalles del todo
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/3b222e39-4a8f-4ef1-9bc3-d39ada4c00a1)
+
+- Corremos el 'ConsumeapiApplication' y probamos el servicio
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/d35952df-63d6-446c-af5a-d8d0d8da74fe)
+
+Luego de terminada esta parte responda:
+
+- ¿Qué es RESTful?
+
+  Rest o Representational State Transfer, es un estilo de arquitectura de software para realizar una comunicación cliente-servidor. Se apoya en el protocolo HTTP para la comunicación al servidor y los mensajes que se envían y reciben pueden estar en XML o JSON. Entonces, así como REST es el estilo de Arquitectura, RESTful es la implementación de dicha arquitectura.
+  Por lo que en resumen, la API RESTful es una interfaz que dos sistemas de computación utilizan para intercambiar información de manera segura a través de Internet.
+
+- Si utilizo un framework como Boostrap CSS para qué el apartado gráfico se vea más profesional, ¿en qué capa se haría su uso?
+
+  El uso de un framework como Bootstrap CSS para mejorar el aspecto gráfico de una aplicación se realizaría principalmente en la capa de presentación, también conocida como la capa de vista o interfaz de usuario.
+
+  En el contexto de una aplicación web utilizando la arquitectura MVC (Modelo-Vista-Controlador), Bootstrap CSS se utilizaría en la capa de vista para diseñar y estilizar las páginas HTML que se muestran al usuario. Esto implica utilizar las clases y componentes proporcionados por Bootstrap CSS para crear una interfaz de usuario atractiva y fácil de usar.
 
   
 
