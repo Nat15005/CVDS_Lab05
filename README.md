@@ -189,13 +189,116 @@ En este ejercicio, va a implementar una aplicación Web muy básica, haciendo us
 
 Para esto usaremos la documentación oficial de Spring con que que aprenderemos las funciones básicas de este framework https://spring.io/guides/gs/serving-web-content/
 
+- Clonamos el repositorio
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/42978ab4-bcbd-4fc7-aede-a160f0be4721)
+
+- Abrimos el proyecto en gs-serving-web-content/initial, escogemos mvn
+  
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/477c0778-8211-446d-928a-8a3ff1d580b7)
+
+- Creamos un GreetingController en la siguiente ubicación 'src/main/java/com/example/servingwebcontent/GreetingController.java'
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/9eb6ef69-2328-4498-80a8-dc2bafc5aa3f)
+
+- Añadimos un html 'greeting.html' en la siguiente ubicación src/main/resources/templates/greeting.html
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/be64715a-0424-4595-a9ec-0f3de29296bb)
+
+- Ahora corremos el servicio desde git bash con el siguiente comando
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/57665dee-cad0-49e4-81c6-afd1c693901d)
+
+- Verificamos que el servicio esté funcionando
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/863bd577-8250-4c25-b6a0-082add10accf)
+
+- También podemos generar un jar con el comando ./mvnw clean package
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/0c16aeab-e2f7-4791-bc56-6abd1365ca16)
+
+  Para correrlo usamos: 'java -jar target/gs-serving-web-content-0.1.0.jar'
+
+- Probamos la aplicación dando un parámetro de nombre 'http://localhost:8080/greeting?name=Nat'
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/bb02a4dd-b865-49e7-a21b-0dfbe8fd1dff)
+
+- Ahora agregamos una home page añadimos un 'index.html' en la ubicación src/main/resources/static/index.html
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/4c99a7ed-c7ea-42a3-9cb3-f96a884ab086)
+
+  - Probamos el home page
+    
+    ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/1038a9e4-042e-42ac-ba10-35edf9afd325)
+
+    ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/81c88b51-389d-4a43-8a54-3fc89d5368aa)
+
+
 Después de terminar el aprendizaje analice:
 
 - ¿Por qué MVC obtiene ese nombre? (puede apoyarse de https://www.javatpoint.com/spring-mvc-tutorial)
+
+  El patrón de diseño MVC (Modelo-Vista-Controlador) obtiene su nombre debido a la división de las responsabilidades en tres componentes principales:
+
+  - Modelo (Model): Representa los datos y la lógica de negocio de la aplicación. Es el encargado de gestionar y manipular los datos, así como de realizar las operaciones relacionadas con la lógica de negocio. El modelo no se preocupa por la forma en que los datos se presentan al usuario ni por cómo se interactúa con ellos.
+  
+  - Vista (View): Es la interfaz de usuario que presenta los datos al usuario final. Se encarga de mostrar la información de manera visual y de proporcionar una interfaz a través de la cual el usuario puede interactuar con la aplicación. La vista no realiza ningún procesamiento de datos ni contiene lógica de negocio.
+  
+  - Controlador (Controller): Actúa como intermediario entre el modelo y la vista. Gestiona las solicitudes del usuario, procesa la entrada del usuario y coordina la interacción entre el modelo y la vista. El controlador decide qué vista mostrar al usuario en función de la acción realizada y los datos proporcionados por el modelo.
+
 - ¿Cuáles son las ventajas de usar MVC?
+
+  1. Separación clara de responsabilidades: Spring MVC separa claramente los roles de cada componente, como el modelo, el controlador, el resolver de vistas, entre otros, lo que facilita el desarrollo y mantenimiento del código.
+  2. Ligero: Utiliza un contenedor de servlets ligero, lo que lo hace adecuado para desarrollar y desplegar aplicaciones de manera eficiente.
+  3. Configuración poderosa: Ofrece una configuración robusta tanto para el framework como para las clases de la aplicación, lo que permite una fácil referencia entre los controladores web, objetos de negocio y validadores.
+  4. Desarrollo rápido: Facilita un desarrollo rápido y paralelo, lo que permite una implementación eficiente de nuevas características y cambios.
+  5. Código de negocio reutilizable: Permite la reutilización de código de negocio existente en lugar de crear nuevos objetos, lo que mejora la eficiencia del desarrollo.
+  6. Fácil de probar: Proporciona clases JavaBeans que facilitan la inyección de datos de prueba, lo que simplifica la realización de pruebas unitarias y de integración.
+  7. Mapeo flexible: Ofrece anotaciones específicas que permiten un mapeo flexible y fácil redireccionamiento de páginas.
+  
 - ¿Qué diferencia tiene la estructura de directorios de este proyecto comparado con las de proyectos pasados (con solo maven y java EE)?
+
+  Estructura de directorios en un proyecto MVC de Spring:
+    
+    - src/main/java: Contiene el código fuente Java de la aplicación, incluyendo los controladores, modelos y servicios.
+    - src/main/resources: Contiene archivos de recursos, como archivos de configuración XML de Spring, archivos de propiedades, archivos de configuración de base de datos, etc.
+    - src/main/webapp: Contiene los recursos web estáticos, como archivos HTML, CSS, JavaScript, imágenes, etc.
+    - src/test: Contiene las pruebas unitarias y de integración de la aplicación.
+    - pom.xml: El archivo POM (Project Object Model) de Maven que define la configuración del proyecto y las dependencias.
+      
+  Proyectos anteriores (solo Maven y Java EE):
+    
+    - src/main: Esta carpeta contiene los archivos fuente de la aplicación Java, incluidos los paquetes de código fuente, recursos estáticos (como archivos HTML, CSS, JavaScript), y archivos de configuración de la aplicación (como web.xml en aplicaciones Java EE).
+    - src/test: Esta carpeta contiene los archivos de prueba de la aplicación Java.
+    - pom.xml: Este archivo define la configuración del proyecto Maven, incluidas las dependencias del proyecto, las configuraciones del complemento Maven, etc.
+
 - ¿Qué anotaciones usaste y cuál es la diferencia entre ellas?
+
+  - @Controller:
+
+    Esta anotación se utiliza para marcar una clase como un controlador de Spring MVC. Indica que la clase define métodos de manejo de solicitudes HTTP y puede devolver una vista o un objeto JSON como respuesta.
+  
+  - @GetMapping:
+  
+    Esta anotación se utiliza para mapear las solicitudes HTTP GET a métodos de controlador específicos. Es una abreviatura de las anotaciones @RequestMapping(method = RequestMethod.GET) y se utiliza para indicar que el método anotado manejará las solicitudes GET en la URL especificada.
+
+  - @RequestParam:
+  
+    Esta anotación se utiliza para vincular los parámetros de una solicitud HTTP a los parámetros de un método del controlador. Puede utilizarse para obtener los valores de los parámetros de la URL, los parámetros de la consulta o los campos de formulario enviados con la solicitud. En este caso, @RequestParam se utiliza para obtener el valor del parámetro name de la URL.
+  
+  - @SpringBootApplication:
+  
+  Esta anotación se utiliza para marcar una clase de configuración de Spring Boot. Combina varias anotaciones, incluidas @Configuration, @EnableAutoConfiguration y @ComponentScan. Indica que la clase es la clase principal de la aplicación Spring Boot y habilita la configuración automática de Spring Boot y el escaneo de componentes.
+  
 - Ahora, haz el request GET http://localhost:8080/greeting usando Postman, y revisa si el body de la respuesta es igual a alguno de los archivos del proyecto. Significa eso que es un recurso web dinámico o estático?
+
+  ![image](https://github.com/Nat15005/CVDS_Lab05/assets/111907712/072b8302-89f8-4f88-b48e-274615f8a3b6)
+
+  El body de la respuesta no es igual a ninguno de los archivos del proyecto. Esto significa que es dinámico.
+
+
+  
+
 
 
 
